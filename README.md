@@ -1,5 +1,5 @@
 
-# ⚙️ Config files for portainer-gitea-droneCI installation and configuration
+# ⚙️ Portainer-Gitea-DroneCI installation and configuration files
 
 ## 🚀 Steps:
 
@@ -13,7 +13,7 @@ To start a docker container place in one of the folders and type this command:
 ```
 
 
-# ⚙️ Archivos de configuración para la instalación y configuración de portainer-gitea-droneCI
+# ⚙️ Archivos de configuración para la instalación y configuración de Portainer-Gitea-DroneCI
 
 ## 🚀 Pasos a seguir:
 
