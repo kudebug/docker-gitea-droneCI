@@ -1,0 +1,50 @@
+version: '3.5'
+
+services:
+  drone-server:
+    image: drone/drone:latest
+    container_name: drone-server
+    ports:
+      - 4000:80
+      - 9000:443
+    networks:
+      - drone
+    volumes:
+      - ./drone-data:/var/lib/drone/
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - ./drone.env
+    restart: always
+    environment:
+      - DRONE_GITEA_SKIP_VERIFY=true
+      - DRONE_AGENTS_ENABLED=true
+      - DRONE_SERVER_HOST= # set http://ip:port
+      - DRONE_SERVER_PROTO=http
+      - DRONE_TLS_AUTOCERT=false
+      - DRONE_OPEN=false
+      - DRONE_HOST= # set http://ip:port
+      - DRONE_GITEA=true
+
+  drone-agent:
+    image: drone/agent:latest
+    container_name: drone-agent
+    command: agent
+    restart: always
+    depends_on:
+      - drone-server
+    networks:
+      - drone
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - ./drone.env
+    environment:
+      - DRONE_RPC_HOST= # set server host ip:port
+      
+
+networks:
+  drone:
+    name: drone_network
+
+### NOTE ###
+# # enviroment variables must be set via drone.env file # #
