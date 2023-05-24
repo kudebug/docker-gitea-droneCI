@@ -1,0 +1,26 @@
+kind: pipeline
+type: docker
+name: Python
+
+steps:
+- name: test
+  image: python:alpine3.18
+  commands:
+  - python3 Prueba.py
+
+- name: notify
+  image: drillster/drone-email
+  settings:
+    repo: # PLACE HERE YOUR REPO
+    USERNAME:
+      from_secret: email-username # Secret previusly configured in drone secrets
+    PASSWORD:
+      from_secret: email-password
+    host: smtp.office365.com # Mail smtp
+    username: $USERNAME
+    password: $PASSWORD
+    from: # PLACE HERE YOUR MAIL
+  when:
+    status:
+      - success
+      - failure
