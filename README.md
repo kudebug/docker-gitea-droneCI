@@ -1,6 +1,11 @@
 
 # ⚙️ Portainer-Gitea-DroneCI installation and configuration files
 
+[![GITEA](https://img.shields.io/badge/gitea-black?style=for-the-badge&logo=gitea)](https://gitea.io/en-us/)
+[![DOCKER-](https://img.shields.io/badge/docker-black?style=for-the-badge&logo=docker)](https://docs.docker.com/)
+[![PORTAINER](https://img.shields.io/badge/portainer-black?style=for-the-badge&logo=portainer)](https://www.portainer.io/)
+[![DRONECI](https://img.shields.io/badge/drone-black?style=for-the-badge&logo=drone)](https://www.drone.io/)
+
 ## 🚀 Steps:
 
 Download and edit yml files with desired configuration
